@@ -2,7 +2,7 @@
 const { Router } = require("express");
 const router = Router();
 
-// Get
+// Get all the controllers request functions
 const {
   getProducts,
   getProductsQuery,
@@ -10,6 +10,7 @@ const {
   getCategoryById,
 } = require("../controllers");
 
+// Set the routes and endpoints
 router.get("/products", getProducts);
 router.get("/products/:query", getProductsQuery);
 router.get("/categories", getCategories);

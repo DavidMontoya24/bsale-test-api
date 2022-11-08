@@ -1,23 +1,26 @@
 const { Product } = require("../models");
 
-const getProducts = async (req, res) => {
-  Product()
-    .then((response) => {
+const product = new Product();
+
+// Controller that get all the products
+exports.getProducts = (req, res) => {
+  product
+    .getAll()
+    .then((data) => {
+      const response = Object.values(JSON.parse(JSON.stringify(data)));
       res.status(200).send(response);
     })
-    .catch((error) => console.log(error));
+    .catch((error) => res.status(400).send(error.message));
 };
 
-const getProductsQuery = async (req, res) => {
+// Controller that get all the products by a given search query
+exports.getProductsQuery = (req, res) => {
   const { query } = req.params;
-  Product(query)
-    .then((response) => {
+  product
+    .getByQuery(query)
+    .then((data) => {
+      const response = Object.values(JSON.parse(JSON.stringify(data)));
       res.status(200).send(response);
     })
-    .catch((error) => console.log(error));
-};
-
-module.exports = {
-  getProducts,
-  getProductsQuery,
+    .catch((error) => res.status(400).send(error.message));
 };
