@@ -9,8 +9,8 @@ const morgan = require("morgan");
 const cors = require("cors");
 
 // Set the router module
-// const router = require("./routes/app.routes");
-// app.use(router);
+const router = require("./routes/app.routes");
+app.use(router);
 
 // Setting de port of the app server
 let port = process.env.PORT || 8000;
