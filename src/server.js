@@ -1,26 +1,23 @@
 // Set the initial modules
 
-// Set the express app module
+// Set the app modules and dependencies
 const express = require("express");
+const cors = require("cors");
+const router = require("./routes/app.routes");
+
 const app = express();
 
-// Set the morgan and cors modules
-const morgan = require("morgan");
-app.use(morgan("dev"));
-const cors = require("cors");
-app.use(cors());
-
-// Set the router module
-const router = require("./routes/app.routes");
-app.use(router);
-
 // Setting de port of the app server
-let port = process.env.PORT || 8000;
+let port = process.env.PORT || 8080;
 app.set("port", port);
 
 // Setting Midlewares
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(cors());
+
+// Set the router paths
+app.use(router);
 
 module.exports = {
   app,
