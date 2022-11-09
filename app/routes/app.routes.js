@@ -11,6 +11,7 @@ const {
 } = require("../controllers");
 
 // Set the routes and endpoints
+router.get("/", (req, res) => res.json({ message: "Bsale Test Api" }));
 router.get("/products", getProducts);
 router.get("/products/:query", getProductsQuery);
 router.get("/categories", getCategories);
