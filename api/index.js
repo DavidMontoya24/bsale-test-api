@@ -1,6 +1,5 @@
-const { app } = require("./app");
+const { app } = require("../src/server.js");
 
-/** It starts the server listening on the port specified in the app's configuration ***/
 const main = () => {
   const port = app.get("port");
   app.listen(port);
