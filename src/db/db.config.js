@@ -1,11 +1,12 @@
-// Set the configuration for the database connection
+require("dotenv").config();
 
+// Set the configuration for the database connection using environment variables
 const dbConfig = {
-  HOST: "mdb-test.c6vunyturrl6.us-west-1.rds.amazonaws.com",
-  USER: "bsale_test",
-  PASSWORD: "bsale_test",
-  DB: "bsale_test",
   dialect: "mysql",
+  HOST: process.env.DB_HOST,
+  USER: process.env.DB_USER,
+  PASSWORD: process.env.DB_PASSWORD,
+  DB: process.env.DB_NAME,
   pool: {
     max: 5,
     min: 0,
