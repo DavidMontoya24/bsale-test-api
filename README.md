@@ -24,7 +24,7 @@ Open Git Bash and change the current working directory to the location where you
   git clone git@github.com:DavidMontoya24/bsale-test-api.git
 ```
 
-Go to that clone directory
+Go to that cloned directory
 
 Install dependencies
 
@@ -32,14 +32,23 @@ Install dependencies
   npm install
 ```
 
+On the directory CREATE a .env file and set the environment variables for the database, there is a .env example file as well
+```bash
+  DB_HOST=[YOUR_DB_HOST]
+  DB_USER=[YOUR_DB_USER]
+  DB_PASSWORD=[YOUR_DB_PASSWORD]
+  DB_NAME=[YOUR_DB_NAME]
+```
+
+
 Start the server
 
 ```bash
   npm run start
 ```
 
-By default the server will listen on port ```http://localhost:8000/```
-So you can try by go to your browser and set path ```http://localhost:8000/products``` for example
+By default the server will listen on port ```http://localhost:8080/```
+So you can try by go to your browser and set path ```http://localhost:8080/products``` for example
 
 
 ## Usage
