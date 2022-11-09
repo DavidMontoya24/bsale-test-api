@@ -6,7 +6,9 @@ const app = express();
 
 // Set the morgan and cors modules
 const morgan = require("morgan");
+app.use(morgan("dev"));
 const cors = require("cors");
+app.use(cors());
 
 // Set the router module
 const router = require("./routes/app.routes");
@@ -19,8 +21,6 @@ app.set("port", port);
 // Setting Midlewares
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(morgan("dev"));
-app.use(cors());
 
 module.exports = {
   app,

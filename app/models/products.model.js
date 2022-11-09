@@ -1,6 +1,7 @@
 const { getConnection } = require("../db");
 
-// Set the Product Model to call the connection
+/* Set the Product Model that has a method to get all the products and a method to get all the products by a
+search query */
 class Product {
   constructor() {}
 

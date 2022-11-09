@@ -1,5 +1,7 @@
 const { getConnection } = require("../db");
 
+/* Set the Category Model that contains methods that allow us to get all the categories and get all the products
+in a specified category */
 class Category {
   constructor() {}
 
