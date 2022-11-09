@@ -1,9 +1,25 @@
-const { app } = require("../src/server.js");
+// Set the initial modules
 
-const main = () => {
-  const port = app.get("port");
-  app.listen(port);
-  console.log(`Server listening on port ${port}`);
-};
+// Set the express app module
+const express = require("express");
+const app = express();
 
-main();
+// Set the morgan and cors modules
+const morgan = require("morgan");
+app.use(morgan("dev"));
+const cors = require("cors");
+app.use(cors());
+
+// Set the router module
+const router = require("./routes/app.routes");
+app.use(router);
+
+// Setting de port of the app server
+let port = process.env.PORT || 8000;
+app.set("port", port);
+
+// Setting Midlewares
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
+module.exports = app;
