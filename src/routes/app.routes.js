@@ -17,7 +17,6 @@ router.get("/", (req, res) => res.json({ message: "Bsale Test Api" }));
 router.get("/products", getProducts);
 router.get("/products/search", getProductsQuery);
 router.get("/products/:id", getProductById);
-// router.get("/products/search/:id", getProductById);
 router.get("/categories", getCategories);
 router.get("/categories/:id/products", getCategoryById);
 

@@ -7,14 +7,14 @@ class Product {
   }
 
   // GET all the products
-  async getAll() {
+  async findAll() {
     /* Getting the connection to the database and returning the result of the query. */
     const connection = await getConnection();
     return await connection.query("SELECT * FROM ??", [this.table]);
   }
 
   // GET all the products by a search query
-  async getByQuery(query) {
+  async findByQuery(query) {
     /* Getting the connection to the database and returning the result of the query. */
     const connection = await getConnection();
     return await connection.query(
@@ -24,7 +24,7 @@ class Product {
   }
 
   // GET product by ID
-  async getById(id) {
+  async findById(id) {
     /* Getting the connection to the database and returning the result of the query. */
     const connection = await getConnection();
     return await connection.query(`SELECT * FROM ?? WHERE id = ?`, [

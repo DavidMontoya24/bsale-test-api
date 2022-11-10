@@ -8,7 +8,7 @@ const product = new Product();
 // Gets all the products from the database.
 exports.getProducts = (req, res) => {
   product
-    .getAll()
+    .findAll()
     .then((data) => {
       /* Converting the data from the database into a JSON object and Sending the response to the client. */
       const response = Object.values(JSON.parse(JSON.stringify(data)));
@@ -23,7 +23,7 @@ exports.getProductsQuery = (req, res) => {
   // Destructuring the query (given word)
   const { name } = req.query;
   product
-    .getByQuery(name)
+    .findByQuery(name)
     .then((data) => {
       /* Converting the data from the database into a JSON object and Sending the response to the client. */
       const response = Object.values(JSON.parse(JSON.stringify(data)));
@@ -37,7 +37,7 @@ exports.getProductById = (req, res) => {
   // Destructuring the id
   const { id } = req.params;
   product
-    .getById(id)
+    .findById(id)
     .then((data) => {
       /* Converting the data from the database into a JSON object and Sending the response to the client. */
       const response = Object.values(JSON.parse(JSON.stringify(data)));

@@ -8,7 +8,7 @@ const category = new Category();
 // Gets all the categories from the database and sends them to the client
 exports.getCategories = async (req, res) => {
   category
-    .getAll()
+    .findAll()
     .then((data) => {
       /* Converting the data from the database into a JSON object and Sending the response to the client. */
       const response = Object.values(JSON.parse(JSON.stringify(data)));
@@ -23,7 +23,7 @@ exports.getCategoryById = async (req, res) => {
   // Destructuring the id
   const { id } = req.params;
   category
-    .getById(id)
+    .findById(id)
     .then((data) => {
       /* Converting the data from the database into a JSON object and Sending the response to the client. */
       const response = Object.values(JSON.parse(JSON.stringify(data)));
