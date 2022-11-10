@@ -21,9 +21,9 @@ exports.getProducts = (req, res) => {
 // Gets all the products by a given search query.
 exports.getProductsQuery = (req, res) => {
   // Destructuring the query (given word)
-  const { query } = req.params;
+  const { name } = req.query;
   product
-    .getByQuery(query)
+    .getByQuery(name)
     .then((data) => {
       /* Converting the data from the database into a JSON object and Sending the response to the client. */
       const response = Object.values(JSON.parse(JSON.stringify(data)));
