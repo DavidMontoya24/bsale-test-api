@@ -10,7 +10,7 @@ class Product {
   async getAll() {
     /* Getting the connection to the database and returning the result of the query. */
     const connection = await getConnection();
-    return await connection.query(`SELECT * FROM ${this.table}`);
+    return await connection.query("SELECT * FROM ??", [this.table]);
   }
 
   // GET all the products by a search query
@@ -18,7 +18,8 @@ class Product {
     /* Getting the connection to the database and returning the result of the query. */
     const connection = await getConnection();
     return await connection.query(
-      `SELECT * FROM ${this.table} WHERE LOWER(name) LIKE LOWER('%${query}%');`
+      `SELECT * FROM ?? WHERE LOWER(name) LIKE LOWER(?);`,
+      [this.table, `%${query}%`]
     );
   }
 
@@ -26,9 +27,10 @@ class Product {
   async getById(id) {
     /* Getting the connection to the database and returning the result of the query. */
     const connection = await getConnection();
-    return await connection.query(
-      `SELECT * FROM ${this.table} WHERE id = ${id}`
-    );
+    return await connection.query(`SELECT * FROM ?? WHERE id = ?`, [
+      this.table,
+      `${id}`,
+    ]);
   }
 }
 

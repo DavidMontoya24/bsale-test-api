@@ -15,8 +15,8 @@ const {
 // The function below will be called when the application is running by default
 router.get("/", (req, res) => res.json({ message: "Bsale Test Api" }));
 router.get("/products", getProducts);
-router.get("/products/:id", getProductById);
-router.get("/products/:query", getProductsQuery);
+router.get("/products/search/name=:query", getProductsQuery);
+router.get("/products/search/:id", getProductById);
 router.get("/categories", getCategories);
 router.get("/categories/:id/products", getCategoryById);
 
