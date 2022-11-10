@@ -50,14 +50,22 @@ Start the server
 By default the server will listen on port ```http://localhost:8080/```
 So you can try by go to your browser and set path ```http://localhost:8080/products``` for example
 
+## Deployed API
 
+There's has been setup and online deployed version of this API in the following link
+
+[https://bsale-test-api.fly.dev](https://bsale-test-api.fly.dev)
+
+That can be used as a URL for the requests
 ## Usage
 You can use Postman or Insomnia as software to test the following endpoints.
+Add the [URL](https://bsale-test-api.fly.dev) and then the following paths to make your requests
 
 
 | HTTP verb | Paths     | Usage               |
 | :-------- | :------- | :------------------------- |
 | `GET` | /products | List all products |
+| `GET` | /products/:id | Show the product by the given ID |
 | `GET` | /products/:query | Show a product that matches a given name or query |
 | `GET` | /categories | List all categories |
 | `GET` | /categories/:id/products | List all products of a given category |

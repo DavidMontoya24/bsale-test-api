@@ -15,6 +15,4 @@ const getConnection = () => {
   return db;
 };
 
-module.exports = {
-  getConnection,
-};
+module.exports = getConnection;
