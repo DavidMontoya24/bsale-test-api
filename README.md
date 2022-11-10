@@ -65,8 +65,8 @@ Add the [URL](https://bsale-test-api.fly.dev) and then the following paths to ma
 | HTTP verb | Paths     | Usage               |
 | :-------- | :------- | :------------------------- |
 | `GET` | /products | List all products |
-| `GET` | /products/:id | Show the product by the given ID |
-| `GET` | /products/:query | Show a product that matches a given name or query |
+| `GET` | /products/search/[id] | Show the product by the given ID |
+| `GET` | /products/search/name=[query] | Show a product that matches a given name or query |
 | `GET` | /categories | List all categories |
-| `GET` | /categories/:id/products | List all products of a given category |
+| `GET` | /categories/[id]/products | List all products of a given category |
 
