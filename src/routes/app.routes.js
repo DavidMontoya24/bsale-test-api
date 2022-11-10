@@ -2,7 +2,7 @@
 const { Router } = require("express");
 const router = Router();
 
-// Get all the controllers request functions
+// Importing all the request functions from our controller configuration file
 const {
   getProducts,
   getProductById,
@@ -12,6 +12,7 @@ const {
 } = require("../controllers");
 
 // Set the routes and endpoints
+// The function below will be called when the application is running by default
 router.get("/", (req, res) => res.json({ message: "Bsale Test Api" }));
 router.get("/products", getProducts);
 router.get("/products/:id", getProductById);

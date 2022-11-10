@@ -1,7 +1,6 @@
 const getConnection = require("../db");
 
-/* Set the Product Model that has a method to get all the products and a method to get all the products by a
-search query */
+/* Setting the Product Model bt declaring a constructor Class */
 class Product {
   constructor() {
     this.table = "product";
@@ -9,23 +8,26 @@ class Product {
 
   // GET all the products
   async getAll() {
+    /* Getting the connection to the database and returning the result of the query. */
     const connection = await getConnection();
     return await connection.query(`SELECT * FROM ${this.table}`);
   }
 
-  // GET product by ID
-  async getById(id) {
-    const connection = await getConnection();
-    return await connection.query(
-      `SELECT * FROM ${this.table} WHERE id = ${id}`
-    );
-  }
-
   // GET all the products by a search query
   async getByQuery(query) {
+    /* Getting the connection to the database and returning the result of the query. */
     const connection = await getConnection();
     return await connection.query(
       `SELECT * FROM ${this.table} WHERE LOWER(name) LIKE LOWER('%${query}%');`
+    );
+  }
+
+  // GET product by ID
+  async getById(id) {
+    /* Getting the connection to the database and returning the result of the query. */
+    const connection = await getConnection();
+    return await connection.query(
+      `SELECT * FROM ${this.table} WHERE id = ${id}`
     );
   }
 }

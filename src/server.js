@@ -1,8 +1,10 @@
 // Set the initial modules
 
-// Set the app modules and dependencies
+// Set the app modules, packages and dependencies
 const express = require("express");
 const cors = require("cors");
+
+// Set the routes comming from our routes configuration file
 const router = require("./routes/app.routes");
 
 const app = express();
@@ -11,7 +13,7 @@ const app = express();
 let port = process.env.PORT || 8080;
 app.set("port", port);
 
-// Setting Midlewares
+// Setting our application-level Midlewares
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cors());
@@ -19,6 +21,5 @@ app.use(cors());
 // Set the router paths
 app.use(router);
 
-module.exports = {
-  app,
-};
+// Export the app configuration
+module.exports = app;
